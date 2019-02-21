@@ -8,17 +8,17 @@ var outputinfo = document.getElementById('outputinfo');
 output.innerHTML = 'Wcisnij guzik jeśli chcesz zamieić stopnie' + '<br><br>'; 
 
 
-var button = document.getElementById('button');
-var button2 = document.getElementById('button2');
+var buttonC = document.getElementById('buttonC');
+var buttonF = document.getElementById('buttonF');
 
 
 var degreesC;
 var degreesF;
 
-button.addEventListener('click', function()
+buttonC.addEventListener('click', function()
 {	
        degreesC = window.prompt('Prosze podać stopnie celcjusza');
-       var valueC = parseInt(degreesC);
+       var valueC = parseFloat(degreesC);
        
        var degreesF = degreesC * 1.8 + 32;  
       
@@ -32,12 +32,9 @@ button.addEventListener('click', function()
        {
               output.innerHTML = 'Nie wpisałeś cyfry';
        }
-}); 
 
-button.addEventListener('click', function()
-{
        var outputinfo = document.getElementById('outputinfo');
-       var valueC = parseInt(degreesC);
+       
        if(valueC == 0)
        {
               outputinfo.innerHTML = 'To jest temperatura zamarzania';
@@ -62,18 +59,15 @@ button.addEventListener('click', function()
        {
               outputinfo.innerHTML = '';
        } 
-});
 
-button.addEventListener('click', function()
-{
        var outputinfo2 = document.getElementById('outputinfo2');
-       var valueC = parseInt(degreesC);
+       
        if(valueC <= 0 )
        {
               outputinfo2.innerHTML = 'Należy ubrać cieplutkie ubranie';
        }
        
-       else if(valueC >= 20 && value < 40) 
+       else if(valueC >= 20 && valueC < 40) 
        {
               outputinfo2.innerHTML = 'Można spokojnie ubrać krótkie spodenki';
        }
@@ -89,10 +83,10 @@ button.addEventListener('click', function()
        }
 });
 
-button2.addEventListener('click', function()
+buttonF.addEventListener('click', function()
 {	
        degreesF = window.prompt('Prosze podać stopnie Fahrenheita');
-       var valueF = parseInt(degreesF);
+       var valueF = parseFloat(degreesF);
        var degreesC = (degreesF -32) / 1.8;  
        
        if(!isNaN(valueF))
@@ -105,12 +99,9 @@ button2.addEventListener('click', function()
        {
               output.innerHTML = 'Nie wpisałeś cyfry';
        }    
-});
-     
-button2.addEventListener('click', function()
-{
+
        var outputinfo = document.getElementById('outputinfo');
-       var valueF = parseInt(degreesF);
+
        if(valueF == 32)
        {
               outputinfo.innerHTML = 'To jest temperatura zamarzania';
@@ -135,12 +126,9 @@ button2.addEventListener('click', function()
        {
               outputinfo.innerHTML = '';
        }
-});
 
-button2.addEventListener('click', function()
-{
        var outputinfo2 = document.getElementById('outputinfo2');
-       var valueF = parseInt(degreesF);
+      
        if(valueF <= 32)
        {
               outputinfo2.innerHTML = 'Należy ubrać cieplutkie ubranie';
