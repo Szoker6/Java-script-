@@ -83,6 +83,7 @@ buttonF.addEventListener('click', function() {
 
     var celcius = convertFeranheitToCelsius(valueC);
     changeStateOfWater(celcius);
+    console.log(valueC);
 
     var outputinfo2 = document.getElementById('outputinfo2');
     
