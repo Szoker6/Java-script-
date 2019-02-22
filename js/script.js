@@ -1,4 +1,3 @@
-
 'use strict';
 
 
@@ -17,9 +16,6 @@ buttonC.addEventListener('click', function() {
     var degreesC = window.prompt('Prosze podać stopnie celcjusza');
     var valueC = parseFloat(degreesC);
 
-    function convertCelsiusToFeranheit(degreesC){
-        return degreesF = degreesC * 1.8 + 32;  
-    }
     var degreesF = convertCelsiusToFeranheit(degreesC);
 
     if(!isNaN(valueC)) {
@@ -27,6 +23,39 @@ buttonC.addEventListener('click', function() {
     } 
     else if (isNaN(valueC)) {
             output.innerHTML = 'Nie wpisałeś cyfry';
+    }
+    changeStateOfWater(valueC);
+    stateOfDressToTemperature(valueC);
+});
+
+buttonF.addEventListener('click', function() {	
+    
+    var degreesF = window.prompt('Prosze podać stopnie Fahrenheita');
+    var valueF = parseFloat(degreesF);
+
+    var degreesC = convertFeranheitToCelsius(degreesF);
+    
+    if(!isNaN(valueF)) {
+            output.innerHTML = 'Stopnie Fahrenheita: ' + degreesF + '&#x2109 ' + '<br>' + 'Stopnie Celsjusza: ' + degreesC + '&#x2103' + '<br>'; 
+    }   
+    else if (isNaN(valueF)) {
+            output.innerHTML = 'Nie wpisałeś cyfry';
+    }    
+
+    var celcius = convertFeranheitToCelsius(valueF);
+    changeStateOfWater(celcius);
+    
+    var dress = convertFeranheitToCelsius(valueF);
+    stateOfDressToTemperature(dress);   
+});
+
+    function convertFeranheitToCelsius(degreesF){
+        return (degreesF -32) / 1.8;  
+    };
+
+
+    function convertCelsiusToFeranheit(degreesC){
+        return degreesC * 1.8 + 32;  
     }
 
     function changeStateOfWater(valueC) {
@@ -47,59 +76,20 @@ buttonC.addEventListener('click', function() {
                 outputinfo.innerHTML = '';
         } 
     };
-    changeStateOfWater(valueC);
 
-
-    if(valueC <= 0 ) {
-            outputinfo2.innerHTML = 'Należy ubrać cieplutkie ubranie';
-    } 
-    else if(valueC >= 20 && valueC < 40) {
-            outputinfo2.innerHTML = 'Można spokojnie ubrać krótkie spodenki';
-    }
-    else if(valueC <= 10) {
-            outputinfo2.innerHTML = 'Należy ubrać kurtkę i czapkę';
-    }
-    else if(valueC != null) {
-            outputinfo2.innerHTML = '';
-    }
-});
-
-buttonF.addEventListener('click', function() {	
-    
-    var degreesF = window.prompt('Prosze podać stopnie Fahrenheita');
-    var valueF = parseFloat(degreesF);
-
-    function convertFeranheitToCelsius(degreesF){
-        return degreesC = (degreesF -32) / 1.8;  
+    function stateOfDressToTemperature(valueC) {
+        var outputinfo2 = document.getElementById('outputinfo2');
+        if(valueC <= 0 ) {
+                outputinfo2.innerHTML = 'Należy ubrać cieplutkie ubranie';
+        } 
+        else if(valueC >= 20 && valueC < 40) {
+                outputinfo2.innerHTML = 'Można spokojnie ubrać krótkie spodenki';
+        }
+        else if(valueC <= 10) {
+                outputinfo2.innerHTML = 'Należy ubrać kurtkę i czapkę';
+        }
+        else if(valueC != null) {
+                outputinfo2.innerHTML = '';
+        }
     };
-    var degreesC = convertFeranheitToCelsius(degreesF);
     
-    if(!isNaN(valueF)) {
-            output.innerHTML = 'Stopnie Fahrenheita: ' + degreesF + '&#x2109 ' + '<br>' + 'Stopnie Celsjusza: ' + degreesC + '&#x2103' + '<br>'; 
-    }   
-    else if (isNaN(valueF)) {
-            output.innerHTML = 'Nie wpisałeś cyfry';
-    }    
-
-    var celcius = convertFeranheitToCelsius(valueC);
-    changeStateOfWater(celcius);
-    console.log(valueC);
-
-    var outputinfo2 = document.getElementById('outputinfo2');
-    
-    if(valueF <= 32 ) {
-            outputinfo2.innerHTML = 'Należy ubrać cieplutkie ubranie';
-    }  
-    else if(valueF >= 68 && degreesF < 104) {
-            outputinfo2.innerHTML = 'Można spokojnie ubrać krótkie spodenki';
-    }
-    else if(valueF <= 50) {
-            outputinfo2.innerHTML = 'Należy ubrać lekką kurtkę';
-    }
-
-    else if(valueF != null) {
-            outputinfo2.innerHTML = '';
-    }
-});
-
-
