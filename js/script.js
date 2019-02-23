@@ -85,6 +85,9 @@ buttonF.addEventListener('click', function() {
         else if(valueC >= 20 && valueC < 40) {
                 outputinfo2.innerHTML = 'Można spokojnie ubrać krótkie spodenki';
         }
+        else if(valueC > 40 && valueC < 50) {
+                outputinfo2.innerHTML = 'Schowaj się w cień lub do zimniej wody';
+        } 
         else if(valueC <= 10) {
                 outputinfo2.innerHTML = 'Należy ubrać kurtkę i czapkę';
         }
