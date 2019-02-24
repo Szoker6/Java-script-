@@ -2,14 +2,12 @@
 
 
 var output = document.getElementById('output');
-
 var outputinfo = document.getElementById('outputinfo');
-
-output.innerHTML = 'Wcisnij guzik jeśli chcesz zamieić stopnie' + '<br><br>'; 
-
-
+var outputinfo2 = document.getElementById('outputinfo2');
 var buttonC = document.getElementById('buttonC');
 var buttonF = document.getElementById('buttonF');
+
+output.innerHTML = 'Wcisnij guzik jeśli chcesz zamieić stopnie' + '<br><br>'; 
 
 buttonC.addEventListener('click', function() {	
     
@@ -59,7 +57,6 @@ buttonF.addEventListener('click', function() {
     }
 
     function changeStateOfWater(valueC) {
-        var outputinfo = document.getElementById('outputinfo');
         if(valueC == 0) {
                 outputinfo.innerHTML = 'To jest temperatura zamarzania';
         }
@@ -78,7 +75,6 @@ buttonF.addEventListener('click', function() {
     };
 
     function stateOfDressToTemperature(valueC) {
-        var outputinfo2 = document.getElementById('outputinfo2');
         if(valueC <= 0 ) {
                 outputinfo2.innerHTML = 'Należy ubrać cieplutkie ubranie';
         } 
